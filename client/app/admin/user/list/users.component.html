@@ -1,0 +1,48 @@
+<div class="row">
+	<div class="portlet">
+		<div class="portlet-title">
+			<div class="caption">
+				<i class="glyphicon glyphicon-user"></i>
+				<span class="caption-subject text-uppercase">Usuarios</span>
+				<span class="caption-helper">Usuarios registrados en el sistema...</span>
+			</div>
+			<div class="actions">
+				<button (click)="removeUsers()" class="btn" [disabled]="selected.length === 0">
+					<i class="glyphicon glyphicon-remove"></i>
+					Eliminar 
+				</button>
+			</div>
+		</div>
+
+		<div class="portlet-body">
+			<div class="row">
+				<div class="col-md-2 col-md-offset-5">
+					<input
+						type='text1'
+						style='padding:8px;margin:15px auto;'
+						placeholder='Buscar usuario'
+						(keyup)='updateFilter($event)'
+					/>
+				</div>
+			</div>
+			<ngx-datatable
+				class="material"
+				[rows]="users"
+				[columnMode]="'force'"
+				[headerHeight]="50"
+				[footerHeight]="50"
+				[rowHeight]="'auto'"
+				[limit]="10"
+				[selected]="selected"
+				[messages]="messages"
+				[selectionType]="'single'"
+				[selectAllRowsOnPage]="false"
+				[selectCheck]="checkSelectable"
+				(select)='onSelect($event)'>
+				<ngx-datatable-column prop="firstName" name="Nombre"></ngx-datatable-column>
+				<ngx-datatable-column prop="lastName" name="Apellido"></ngx-datatable-column>
+				<ngx-datatable-column prop="username" name="Nombre de usuario"></ngx-datatable-column>
+			</ngx-datatable>
+		</div>
+	</div>
+</div>

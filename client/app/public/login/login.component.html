@@ -1,0 +1,86 @@
+﻿<!-- Top content -->
+<div class="top-content">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-8 col-sm-offset-2 text">
+				<h1><strong>Bienvenidos!</strong> Biblioteca de peliculas</h1>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-5">	
+				<div class="form-box">
+					<div class="form-top">
+						<div class="form-top-left">
+							<h3>Entrar como administrador</h3>
+								<p>Ingrese usuario y contraseña</p>
+						</div>
+						<div class="form-top-right">
+							<i class="fa fa-key"></i>
+						</div>
+					</div>
+					<div class="form-bottom">
+						<form [formGroup]="loginForm" novalidate (ngSubmit)="login()" class="login-form">
+							<div class="form-group">
+								<label class="sr-only" for="form-username">Usuario</label>
+								<input type="text" name="form-username" placeholder="Usuario..." class="form-username form-control" id="form-username" formControlName="name">
+								</div>
+								<div class="form-group">
+									<label class="sr-only" for="form-password">Contraseña</label>
+									<input type="password" name="form-password" placeholder="Contraseña..." class="form-password form-control" id="form-password" formControlName="password">
+								</div>
+								<button type="submit" [disabled]="!loginForm.valid" class="btn1">Ingresar!</button>
+						</form>
+					</div>
+				</div>
+				<div class="social-login">
+					<h3>...o ingrese como invitado con:</h3>
+					<div class="social-login-buttons">
+						<button class="btn1 btn1-link-1 btn1-link-1-facebook" (click)="loginWithFacebook()">
+							<i class="fa fa-facebook"></i> Facebook
+						</button>
+					</div>
+				</div>
+			</div>
+				
+			<div class="col-sm-1 middle-border"></div>
+			<div class="col-sm-1"></div>
+					
+			<div class="col-sm-5">	
+				<div class="form-box">
+					<div class="form-top">
+						<div class="form-top-left">
+							<h3>Registro</h3>
+							<p>Completa el formulario para registrarse:</p>
+						</div>
+						<div class="form-top-right">
+							<i class="fa fa-pencil"></i>
+						</div>
+					</div>
+					<div class="form-bottom">
+						<form role="form" action="" [formGroup]="registerForm" novalidate (ngSubmit)="register()" class="registration-form">
+							<div class="form-group">
+								<label class="sr-only" for="form-first-name">Nombre</label>
+									<input type="text" name="form-first-name" placeholder="Nombre..." class="form-first-name form-control" id="form-first-name" formControlName="firstNameRegister">
+								</div>
+								<div class="form-group">
+									<label class="sr-only" for="form-last-name">Apellido</label>
+									<input type="text" name="form-last-name" placeholder="Apellido..." class="form-last-name form-control" id="form-last-name" formControlName="lastNameRegister">
+								</div>
+								<div class="form-group">
+									<label class="sr-only" for="form-email">Nombre de usuario</label>
+									<input type="text" name="form-email" placeholder="Nombre de usuario..." class="form-email form-control" id="form-username-register" formControlName="userNameRegister">
+								</div>
+								<div class="form-group">
+									<label class="sr-only" for="form-email">Contraseña</label>
+									<input type="password" name="form-email" placeholder="Contraseña..." class="form-email form-control" id="form-password-register" formControlName="passwordRegister">
+								</div>
+								<button type="submit" [disabled]="!registerForm.valid" class="btn1">Registrarse!</button>
+						</form>
+					</div>
+				</div>			
+			</div>
+		</div>		
+	</div>
+</div>
+
+

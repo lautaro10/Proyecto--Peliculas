@@ -1,0 +1,79 @@
+﻿<div class="row">
+	<div class="portlet">
+		<div class="portlet-title">
+			<div class="caption">
+				<i class="glyphicon glyphicon-facetime-video"></i>
+				<span class="caption-subject text-uppercase">Detalle de la película</span>
+			</div>
+		</div>
+		<div class="portlet-body" *ngIf="movie">
+			<div class="post">
+				<div class="row">
+					<div class="col-sm-3">
+						<div class="poster">
+							<img src="assets/img/movies.jpg">
+						</div>
+					</div>
+					<div class="col-sm-9">
+						<div class="post-right">
+							<div class="post-right_title">
+								{{movie.title}}
+							</div>
+							<div class="post-right_body">
+								<p *ngIf="movie.overview">{{ movie.overview }}</p>
+								<p *ngIf="!movie.overview">No posee descripción</p>
+							</div>
+							<div class="post-right_footer">
+								<div class="post-right_footer_date">
+									<p class="left-title"><span class="title-options">Estreno</span> - {{movie.release_date | date:'fullDate'}}</p>
+									<p class="left-title"><span class="title-options">Idioma</span> - {{movie.original_language | idiomPipe}}</p>
+									<p class="left-title"><span class="title-options">Popularidad</span> - {{movie.popularity | popularityPipe}}</p>
+									<p class="left-title"><span class="title-options">Genero</span> - <span *ngFor="let id of movie.genre_ids">{{id | genrePipe}} - </span></p>
+								</div>
+									<div class="post-right_footer_pictos">
+										<button class="btn btn-circle btn-default" (click)="viewTrailer(movie.title)">
+											<i class="fa fa-film" aria-hidden="true"></i>
+											Trailer
+										</button>
+									</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="row margin-portlet">
+	<div class="portlet">
+		<div class="portlet-title">
+			<div class="caption">
+				<i class="glyphicon glyphicon-exclamation-sign"></i>
+				<span class="caption-subject text-uppercase">Recomendaciones</span>
+			</div>
+		</div>
+		<div class="portlet-body">
+			<div class="row" *ngIf="recomendations?.length > 0">
+				<div class="recomendations">
+					<div class="col-md-4" *ngFor="let movie of recomendations">		
+						<div class="panel panel-default panel--styled">
+							<div class="panel-body">
+								<div class="pull-left">	
+									<h4>{{movie.title}}</h4>
+								</div>
+								<div class="pull-right">
+									<button class="btn btn-add-to-cart" (click)="saveMovie(movie)">Agregar</button>						
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row" *ngIf="recomendations?.length === 0">
+				<div class="panel-body">
+					No hay recomendaciones de películas
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

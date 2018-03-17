@@ -1,0 +1,137 @@
+body {
+  height: 100vh;
+  background: radial-gradient(circle, #D6A664, #F9CD8F);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-family: roboto;
+}
+
+.post {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.post-left {
+  background-color: #484855;
+  color: white;
+  padding: 3em;
+  position: relative;
+}
+
+.post-left_title {
+  font-size: 2em;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.post-left_title_sub {
+  font-size: 2em;
+  text-transform: uppercase;
+  font-weight: 300;
+  margin-top: 0.25em;
+}
+
+.post-left_border {
+  border: 2px solid #ef5350;
+  width: 15%;
+  margin-top: 1em;
+}
+
+.post-left_author {
+  position: absolute;
+  bottom: 2em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.post-left_author img {
+  width: 2.5em;
+  margin-right: 1em;
+  border: 1px solid #FEFEFE;
+  border-radius: 50%;
+}
+
+.post-right {
+  background-color: #FEFEFE;
+  color: #484855;
+}
+
+.post-right_body {
+	line-height: 2;
+}
+.post-right_body p {
+  margin-top: 1em;
+}
+.post-right_body p {
+  font-size: 1em;
+}
+
+.post-right_title {
+	padding-top: 1em;
+	line-height: 2;
+	font-weight: bold;
+	font-family: serif;
+	text-transform: uppercase;
+	text-decoration: underline;
+}
+.post-right_title p {
+  margin-top: 1em;
+}
+.post-right_title p {
+  font-size: 1em;
+}
+
+.post-right_footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-shadow: 0px -4px 3px -2px rgba(0, 0, 0, 0.1);
+          box-shadow: 0px -4px 3px -2px rgba(0, 0, 0, 0.1);
+  padding-top: 1em;
+}
+
+.post-right_footer_date {
+  text-transform: uppercase;
+}
+
+.post-right_footer_pictos {
+  font-size: 1.5em;
+}
+
+.left-title {
+	text-align: left
+}
+
+.panel.panel--styled {
+	background: #F4F2F3;
+}
+
+.margin-portlet {
+	margin-top: 15px;
+	margin-bottom: 15px
+}
+
+.title-options {
+	font-weight: 700;
+}
+
+.recomendations {
+	padding-top: 1em;
+}
+.poster {
+	padding-top: 1em;
+}
