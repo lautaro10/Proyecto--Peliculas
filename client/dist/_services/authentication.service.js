@@ -13,6 +13,10 @@ var core_1 = require("@angular/core");
 var http_1 = require("@angular/http");
 require("rxjs/add/operator/map");
 var AuthenticationService = /** @class */ (function () {
+    /**
+     * Create AuthenticationService instance
+     * @param http Http
+     */
     function AuthenticationService(http) {
         this.http = http;
     }

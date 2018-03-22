@@ -1,5 +1,5 @@
 export class Movie {
-	_id: string;
+	_id?: string;
 	title: string;
 	original_lenaguage: string;
 	release_date: any;

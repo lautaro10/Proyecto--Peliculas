@@ -13,6 +13,7 @@ var router_1 = require("@angular/router");
 var movies_component_1 = require("./list/movies.component");
 var new_movie_component_1 = require("./new/new-movie.component");
 var movie_component_1 = require("./show/movie.component");
+var index_1 = require("../../_guards/index");
 /**
  * Routes for Movies module.
  */
@@ -24,6 +25,7 @@ var MOVIES_ROUTES = [
     },
     {
         path: 'nueva',
+        canActivate: [index_1.AuthGuard],
         pathMatch: 'full',
         component: new_movie_component_1.NewMovieComponent
     },

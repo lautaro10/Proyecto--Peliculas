@@ -11,6 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 // Libraries
 var core_1 = require("@angular/core");
+// Services
 var logged_service_1 = require("../_services/logged.service");
 /**
  * `AdminComponent` implements the main view for admin module.

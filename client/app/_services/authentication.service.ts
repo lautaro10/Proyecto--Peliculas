@@ -5,6 +5,11 @@ import 'rxjs/add/operator/map'
 
 @Injectable()
 export class AuthenticationService {
+
+	/**
+	 * Create AuthenticationService instance
+	 * @param http Http
+	 */
 	constructor(private http: Http) { }
 
 	login(username: string, password: string) {

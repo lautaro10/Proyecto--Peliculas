@@ -9,23 +9,25 @@ import {
 import { MoviesComponent } from './list/movies.component';
 import { NewMovieComponent } from './new/new-movie.component';
 import { MovieComponent } from './show/movie.component';
+import { AuthGuard } from '../../_guards/index';
 
 /**
  * Routes for Movies module.
  */
 const MOVIES_ROUTES: Routes = [
   {
-    path: '',
+		path: '',
     pathMatch: 'full',
     component: MoviesComponent
 	},
   {
-    path: 'nueva',
+		path: 'nueva',
+		canActivate: [AuthGuard],
     pathMatch: 'full',
     component: NewMovieComponent
 	},
   {
-    path: ':id',
+		path: ':id',
     component: MovieComponent,
   }
 ];

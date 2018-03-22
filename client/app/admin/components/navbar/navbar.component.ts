@@ -2,8 +2,10 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'angular2-social-login';
-import { AuthenticationService } from '../../../_services/index';
+
+// Services
 import { LoggedService } from '../../../_services/logged.service';
+import { AuthenticationService } from '../../../_services/index';
 
 /**
  * `NavbarComponent`
@@ -14,8 +16,12 @@ import { LoggedService } from '../../../_services/logged.service';
 	templateUrl: 'navbar.component.html'
 })
 export class NavbarComponent {
-	isMovieSelected = false;
+	// Public properties
+	/**
+	 * Toggle to check if user is admin or not
+	 */
 	isAdmin = false;
+
   /**
    * Creates a new `NavbarComponent` instance.
    */
@@ -28,7 +34,11 @@ export class NavbarComponent {
 		this.isAdmin = userLogged.isAdmin;
 	}
 	
-	logoutFace(){
+	// Public methods
+	/**
+	 * Logout social login
+	 */
+	logoutSocialLogin(){
 		this._auth.logout().subscribe(
 			(data: any)=>{
 				this.router.navigate(['/login']);
@@ -36,6 +46,9 @@ export class NavbarComponent {
 		)
 	}
 
+	/**
+	 * Logout admin
+	 */
 	logout() {
 		this.authenticationService.logout();
 		this.router.navigate(['/login']);

@@ -9,19 +9,31 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+// Libraries
 var core_1 = require("@angular/core");
+// Routes
 var router_1 = require("@angular/router");
 var AuthGuard = /** @class */ (function () {
+    /**
+     * Create AuthGuard instance
+     * @param router Router
+     */
     function AuthGuard(router) {
         this.router = router;
     }
+    // Public methods
+    /**
+     * Interfaz que una clase puede implementar para ser un guardia que decide si se puede activar una ruta.
+     * @param route ActivatedRouteSnapshot route
+     * @param state Current state
+     */
     AuthGuard.prototype.canActivate = function (route, state) {
         var _login_provider = localStorage.getItem('_login_provider');
         if (_login_provider !== 'facebook') {
             // logged in so return true
             return true;
         }
-        // not logged in so redirect to login page with the return url
+        // Not logged in so redirect to login page with the return url
         this.router.navigate(['/peliculas']);
         return false;
     };
@@ -32,11 +44,20 @@ var AuthGuard = /** @class */ (function () {
     return AuthGuard;
 }());
 exports.AuthGuard = AuthGuard;
-var AuthGuard1 = /** @class */ (function () {
-    function AuthGuard1(router) {
+var AuthGuardSocialLogin = /** @class */ (function () {
+    /**
+     * Create AuthGuard instance
+     */
+    function AuthGuardSocialLogin(router) {
         this.router = router;
     }
-    AuthGuard1.prototype.canActivate = function (route, state) {
+    // Public methods
+    /**
+     * Interfaz que una clase puede implementar para ser un guardia que decide si se puede activar una ruta.
+     * @param route ActivatedRouteSnapshot route
+     * @param state Current state
+     */
+    AuthGuardSocialLogin.prototype.canActivate = function (route, state) {
         var _login_provider = localStorage.getItem('_login_provider');
         if (_login_provider) {
             // logged in so return true
@@ -46,11 +67,11 @@ var AuthGuard1 = /** @class */ (function () {
         this.router.navigate(['/peliculas']);
         return false;
     };
-    AuthGuard1 = __decorate([
+    AuthGuardSocialLogin = __decorate([
         core_1.Injectable(),
         __metadata("design:paramtypes", [router_1.Router])
-    ], AuthGuard1);
-    return AuthGuard1;
+    ], AuthGuardSocialLogin);
+    return AuthGuardSocialLogin;
 }());
-exports.AuthGuard1 = AuthGuard1;
+exports.AuthGuardSocialLogin = AuthGuardSocialLogin;
 //# sourceMappingURL=auth.guard.js.map

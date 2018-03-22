@@ -13,8 +13,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
 var angular2_social_login_1 = require("angular2-social-login");
-var index_1 = require("../../../_services/index");
+// Services
 var logged_service_1 = require("../../../_services/logged.service");
+var index_1 = require("../../../_services/index");
 /**
  * `NavbarComponent`
  */
@@ -27,16 +28,26 @@ var NavbarComponent = /** @class */ (function () {
         this.authenticationService = authenticationService;
         this._auth = _auth;
         this.userLogged = userLogged;
-        this.isMovieSelected = false;
+        // Public properties
+        /**
+         * Toggle to check if user is admin or not
+         */
         this.isAdmin = false;
         this.isAdmin = userLogged.isAdmin;
     }
-    NavbarComponent.prototype.logoutFace = function () {
+    // Public methods
+    /**
+     * Logout social login
+     */
+    NavbarComponent.prototype.logoutSocialLogin = function () {
         var _this = this;
         this._auth.logout().subscribe(function (data) {
             _this.router.navigate(['/login']);
         });
     };
+    /**
+     * Logout admin
+     */
     NavbarComponent.prototype.logout = function () {
         this.authenticationService.logout();
         this.router.navigate(['/login']);

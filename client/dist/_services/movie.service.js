@@ -9,14 +9,24 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+// Libraries
 var core_1 = require("@angular/core");
 var http_1 = require("@angular/http");
 require("rxjs/add/operator/map");
 var MovieService = /** @class */ (function () {
+    /**
+     * Create a new MovieService instance
+     * @param http Http
+     */
     function MovieService(http) {
         this.http = http;
+        // Private properties
+        /**
+         * Key to use external api
+         */
         this.apiKey = '3fc8dba6ae880d1320d5869f0292c276';
     }
+    // Public methods
     MovieService.prototype.getAll = function () {
         return this.http.get('/movies').map(function (response) { return response.json(); });
     };

@@ -44,7 +44,7 @@
 		</div>
 	</div>
 </div>
-<div class="row margin-portlet">
+<div class="row margin-portlet" *ngIf="isAdmin">
 	<div class="portlet">
 		<div class="portlet-title">
 			<div class="caption">
@@ -62,7 +62,7 @@
 									<h4>{{movie.title}}</h4>
 								</div>
 								<div class="pull-right">
-									<button class="btn btn-add-to-cart" (click)="saveMovie(movie)">Agregar</button>						
+									<button class="btn-default" (click)="saveMovie(movie)">Agregar</button>						
 								</div>
 							</div>
 						</div>

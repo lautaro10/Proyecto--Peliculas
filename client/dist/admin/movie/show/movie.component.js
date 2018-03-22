@@ -9,18 +9,34 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+// Libraries
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
-var index_1 = require("../../../_services/index");
 var ngx_toastr_1 = require("ngx-toastr");
 var router_2 = require("@angular/router");
+// Services
+var logged_service_1 = require("../../../_services/logged.service");
+var index_1 = require("../../../_services/index");
 var MovieComponent = /** @class */ (function () {
-    function MovieComponent(route, movieService, toastr, router) {
+    /**
+   * Creates a new `MovieComponent` instance.
+   */
+    function MovieComponent(route, movieService, toastr, router, userLogged) {
         this.route = route;
         this.movieService = movieService;
         this.toastr = toastr;
         this.router = router;
+        this.userLogged = userLogged;
+        /**
+         * Toggle to check if user is admin or not
+         */
+        this.isAdmin = false;
+        this.isAdmin = userLogged.isAdmin;
     }
+    // Public properties
+    /**
+     * Implements on init method
+     */
     MovieComponent.prototype.ngOnInit = function () {
         var _this = this;
         // Get position from backend
@@ -31,9 +47,17 @@ var MovieComponent = /** @class */ (function () {
             _this.loadMovie(id);
         });
     };
+    /**
+     * Redirect to see movie trailer
+     * @param title Title movie
+     */
     MovieComponent.prototype.viewTrailer = function (title) {
         window.open("https://www.youtube.com/results?search_query=trailer+" + title, "_blank");
     };
+    /**
+     * Save movie form recomendations list
+     * @param movie Current movie
+     */
     MovieComponent.prototype.saveMovie = function (movie) {
         var _this = this;
         this.movieService.create(movie)
@@ -44,6 +68,11 @@ var MovieComponent = /** @class */ (function () {
             _this.toastr.error(error);
         });
     };
+    // Private methods
+    /**
+     * Load movie
+     * @param id Movie id
+     */
     MovieComponent.prototype.loadMovie = function (id) {
         var _this = this;
         this.movieService.getById(id)
@@ -57,9 +86,13 @@ var MovieComponent = /** @class */ (function () {
             _this.router.navigate(['peliculas']);
         });
     };
-    MovieComponent.prototype.loadRecomendations = function (term) {
+    /**
+     * Load recomendations
+     * @param title Title movie
+     */
+    MovieComponent.prototype.loadRecomendations = function (title) {
         var _this = this;
-        this.movieService.searchMovie(term).subscribe(function (res) {
+        this.movieService.searchMovie(title).subscribe(function (res) {
             if (res.results.length > 0) {
                 var movies = res.results;
                 _this.firstThreeMovies(movies);
@@ -69,6 +102,10 @@ var MovieComponent = /** @class */ (function () {
             }
         });
     };
+    /**
+     * Only show three recomendations
+     * @param movies Movies list
+     */
     MovieComponent.prototype.firstThreeMovies = function (movies) {
         this.recomendations = [];
         var i = 1;
@@ -86,7 +123,8 @@ var MovieComponent = /** @class */ (function () {
         __metadata("design:paramtypes", [router_1.ActivatedRoute,
             index_1.MovieService,
             ngx_toastr_1.ToastrService,
-            router_2.Router])
+            router_2.Router,
+            logged_service_1.LoggedService])
     ], MovieComponent);
     return MovieComponent;
 }());

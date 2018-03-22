@@ -59,7 +59,7 @@ var LoginComponent = /** @class */ (function () {
             .subscribe(function (data) {
             _this.toastr.success('Registro exitoso!');
         }, function (error) {
-            _this.toastr.error('Error al registrarse');
+            _this.toastr.error('Usuario ya existente');
             _this.loading = false;
         });
     };

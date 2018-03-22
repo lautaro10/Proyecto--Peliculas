@@ -10,8 +10,6 @@ app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-// use JWT auth to secure the api, the token can be passed in the authorization header or querystring
-
 // routes
 app.use('/users', require('./controllers/users.controller'));
 app.use('/movies', require('./controllers/movies.controller'));

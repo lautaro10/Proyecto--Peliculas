@@ -9,33 +9,59 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+// Libraries
 var core_1 = require("@angular/core");
-var index_1 = require("../../../_services/index");
 var ngx_datatable_1 = require("@swimlane/ngx-datatable");
 var ngx_toastr_1 = require("ngx-toastr");
 var router_1 = require("@angular/router");
+// Services
 var logged_service_1 = require("../../../_services/logged.service");
+var index_1 = require("../../../_services/index");
 var MoviesComponent = /** @class */ (function () {
+    /**
+   * Creates a new `MoviesComponent` instance.
+   */
     function MoviesComponent(movieService, toastrService, router, userLogged) {
         this.movieService = movieService;
         this.toastrService = toastrService;
         this.router = router;
         this.userLogged = userLogged;
+        /**
+         * Movies list
+         */
         this.movies = [];
+        /**
+         * Toggle to check if movies has charged
+         */
         this.isLoading = false;
+        /**
+         * Movies selected
+         */
         this.selected = [];
-        this.temp = [];
+        /**
+         * Toggle to check if user is admin or not
+         */
         this.isAdmin = false;
+        /**
+         * Current messages error
+         */
         this.messages = {
             emptyMessage: "No se encontraron películas"
         };
+        // Private methods
+        this.temp = [];
         this.isAdmin = userLogged.isAdmin;
     }
+    // Public methods
+    /**
+     * Implements on init method
+     */
     MoviesComponent.prototype.ngOnInit = function () {
         this.loadAllmovies();
     };
-    MoviesComponent.prototype.onActivate = function (event) {
-    };
+    /**
+     * Delete movie selected
+     */
     MoviesComponent.prototype.removeMovie = function () {
         var _this = this;
         this.movieService.delete(this.selected[0]._id).subscribe(function () {
@@ -44,15 +70,24 @@ var MoviesComponent = /** @class */ (function () {
         });
         this.selected = [];
     };
+    /**
+     * Movies selected
+     */
     MoviesComponent.prototype.onSelect = function (_a) {
         var selected = _a.selected;
         this.selected.splice(0, this.selected.length);
         (_b = this.selected).push.apply(_b, selected);
         var _b;
     };
+    /**
+     * Redirect to movie show
+     */
     MoviesComponent.prototype.showMovie = function () {
         this.router.navigate(['peliculas', this.selected[0]._id]);
     };
+    /**
+     * Search movie
+     */
     MoviesComponent.prototype.updateFilter = function (event) {
         var val = event.target.value.toLowerCase();
         // filter our data
@@ -64,6 +99,10 @@ var MoviesComponent = /** @class */ (function () {
         // Whenever the filter changes, always go back to the first page
         this.table.offset = 0;
     };
+    // Private methods
+    /**
+     * Charge movies
+     */
     MoviesComponent.prototype.loadAllmovies = function () {
         var _this = this;
         this.isLoading = true;

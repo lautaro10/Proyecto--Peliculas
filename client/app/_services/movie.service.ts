@@ -1,14 +1,32 @@
+// Libraries
 import { Injectable } from '@angular/core';
-import { Http, Headers, RequestOptions, Response } from '@angular/http';
+import {
+	Http,
+	Headers,
+	RequestOptions,
+	Response
+} from '@angular/http';
 import 'rxjs/add/operator/map';
-import { Movie } from '../_models/index';
 import { Observable } from 'rxjs/Observable';
+
+// Models
+import { Movie } from '../_models/index';
 
 @Injectable()
 export class MovieService {
+	// Private properties
+	/**
+	 * Key to use external api
+	 */
 	private apiKey = '3fc8dba6ae880d1320d5869f0292c276';
+
+	/**
+	 * Create a new MovieService instance
+	 * @param http Http
+	 */
 	constructor(private http: Http) { }
 
+	// Public methods
 	getAll() {
 		return this.http.get('/movies').map((response: Response) => response.json());
 	}

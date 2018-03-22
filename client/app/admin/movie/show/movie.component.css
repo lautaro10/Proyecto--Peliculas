@@ -135,3 +135,13 @@ body {
 .poster {
 	padding-top: 1em;
 }
+
+button.btn-default {
+	background: #3498db;
+	color: #ffffff;
+	text-decoration: none;
+}
+
+button.btn-default:hover {
+	text-decoration: none;
+}

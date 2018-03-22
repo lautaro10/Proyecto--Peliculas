@@ -65,7 +65,7 @@ export class LoginComponent implements OnInit {
 				this.toastr.success('Registro exitoso!');
 			},
 			error => {
-				this.toastr.error('Error al registrarse');
+				this.toastr.error('Usuario ya existente');
 					this.loading = false;
 			}
 		);

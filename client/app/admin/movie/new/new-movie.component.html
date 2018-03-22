@@ -15,24 +15,27 @@
 						name="movieName"
 						class="newMovie"
 						(keyup.enter)="searchMovie(movie.value)">
-						<button (click)="searchMovie(movie.value)" [disabled]="!movieName || isLoading" class="btn1">Buscar</button>
-					</div>
+					<button (click)="searchMovie(movie.value)" [disabled]="!movieName || isLoading" class="btn-default">
+						<span *ngIf="isLoading">Buscando..</span>
+						<span *ngIf="!isLoading">Buscar</span>
+					</button>
+				</div>
 			</div>
 			<div class="row">
 				<div *ngFor="let movie of searchMovies">
 					<div class="col-md-4">				
 						<div class="panel panel-default panel--styled">
 							<div class="panel-body">
-								<div class=" panelTop">	
+								<div class="panelTop">
 									<h4>{{movie.title}}</h4>
 									<div class="scroll">
 										<p *ngIf="movie.overview" class="description">{{ movie.overview }}</p>
-										<p *ngIf="!movie.overview" class="description">No posee descipción</p>
+										<p *ngIf="!movie.overview" class="description text-center">No posee descipción</p>
 									</div>
 								</div>
 								<div class="panelBottom">
 									<div class="text-center">
-										<button class="btn btn-add-to-cart" (click)="saveMovie(movie)">Agregar</button>						
+										<button class="btn-default" (click)="saveMovie(movie)">Agregar</button>						
 									</div>
 								</div>
 							</div>

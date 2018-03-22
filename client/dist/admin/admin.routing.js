@@ -27,7 +27,7 @@ var ADMIN_ROUTES = [
                 loadChildren: 'app/admin/user/users.module#UsersModule'
             },
             {
-                canActivate: [index_1.AuthGuard1],
+                canActivate: [index_1.AuthGuardSocialLogin],
                 path: 'peliculas',
                 loadChildren: 'app/admin/movie/movies.module#MoviesModule'
             },

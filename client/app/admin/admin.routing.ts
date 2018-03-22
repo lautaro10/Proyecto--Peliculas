@@ -4,7 +4,7 @@ import {
   RouterModule,
   Routes
 } from '@angular/router';
-import { AuthGuard, AuthGuard1 } from '../_guards/index';
+import { AuthGuard, AuthGuardSocialLogin } from '../_guards/index';
 
 // Components
 import { AdminComponent } from './admin.component';
@@ -24,7 +24,7 @@ const ADMIN_ROUTES: Routes = [
         loadChildren: 'app/admin/user/users.module#UsersModule'
       },
       {
-				canActivate: [AuthGuard1],
+				canActivate: [AuthGuardSocialLogin],
         path: 'peliculas',
         loadChildren: 'app/admin/movie/movies.module#MoviesModule'
 			},

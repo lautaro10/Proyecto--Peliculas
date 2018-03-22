@@ -1,7 +1,16 @@
-﻿import { Injectable } from "@angular/core";
-import { ConnectionBackend, XHRBackend, RequestOptions, Request, RequestOptionsArgs, Response, Http, Headers } from "@angular/http";
+﻿// Libraries
+import { Injectable } from "@angular/core";
+import {
+	ConnectionBackend,
+	XHRBackend,
+	RequestOptions,
+	Request,
+	RequestOptionsArgs,
+	Response,
+	Http,
+	Headers
+} from "@angular/http";
 import { appConfig } from '../app.config';
-
 import { Observable } from "rxjs/Observable";
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
@@ -9,10 +18,14 @@ import 'rxjs/add/observable/throw';
 
 @Injectable()
 export class CustomHttp extends Http {
+	/**
+	 * Create CustomHttp instance
+	 */
 	constructor(backend: ConnectionBackend, defaultOptions: RequestOptions) {
 		super(backend, defaultOptions);
 	}
 
+	// Public methods
 	get(url: string, options?: RequestOptionsArgs): Observable<Response> {
 		if (!options) {
 			return super.get(appConfig.apiUrl + url).catch(this.handleError);
@@ -33,8 +46,11 @@ export class CustomHttp extends Http {
 		return super.delete(appConfig.apiUrl + url).catch(this.handleError);
 	}
 
-	// private helper methods
-
+	// Private methods
+	/**
+	 * Handle errors
+	 * @param error current errors
+	 */
 	private handleError(error: any) {
 		if (error.status === 401) {
 			// 401 unauthorized response so log user out of client

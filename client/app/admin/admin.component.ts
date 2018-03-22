@@ -1,5 +1,7 @@
 // Libraries
 import { Component } from '@angular/core';
+
+// Services
 import { LoggedService } from '../_services/logged.service';
 
 /**

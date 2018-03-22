@@ -13,6 +13,7 @@ var ngx_datatable_1 = require("@swimlane/ngx-datatable");
 var forms_1 = require("@angular/forms");
 // Routing
 var movies_routing_1 = require("./movies.routing");
+// Pipes
 var genersPipe_pipe_1 = require("../pipes/genersPipe.pipe");
 var idiomPipe_pipe_1 = require("../pipes/idiomPipe.pipe");
 var popularityPipe_pipe_1 = require("../pipes/popularityPipe.pipe");

@@ -19,6 +19,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+// Libraries
 var core_1 = require("@angular/core");
 var http_1 = require("@angular/http");
 var app_config_1 = require("../app.config");
@@ -28,9 +29,13 @@ require("rxjs/add/operator/map");
 require("rxjs/add/observable/throw");
 var CustomHttp = /** @class */ (function (_super) {
     __extends(CustomHttp, _super);
+    /**
+     * Create CustomHttp instance
+     */
     function CustomHttp(backend, defaultOptions) {
         return _super.call(this, backend, defaultOptions) || this;
     }
+    // Public methods
     CustomHttp.prototype.get = function (url, options) {
         if (!options) {
             return _super.prototype.get.call(this, app_config_1.appConfig.apiUrl + url).catch(this.handleError);
@@ -48,7 +53,11 @@ var CustomHttp = /** @class */ (function (_super) {
     CustomHttp.prototype.delete = function (url, options) {
         return _super.prototype.delete.call(this, app_config_1.appConfig.apiUrl + url).catch(this.handleError);
     };
-    // private helper methods
+    // Private methods
+    /**
+     * Handle errors
+     * @param error current errors
+     */
     CustomHttp.prototype.handleError = function (error) {
         if (error.status === 401) {
             // 401 unauthorized response so log user out of client

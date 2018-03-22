@@ -6,9 +6,8 @@ import { Angular2SocialLoginModule } from "angular2-social-login";
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app.routing';
 import { customHttpProvider } from './_helpers/index';
-import { AlertComponent } from './_directives/index';
-import { AuthGuard, AuthGuard1 } from './_guards/index';
-import { AuthenticationService, UserService, PagerService } from './_services/index';
+import { AuthGuard, AuthGuardSocialLogin } from './_guards/index';
+import { AuthenticationService, UserService } from './_services/index';
 import { PublicModule } from './public/public.module';
 import { AdminModule } from './admin/admin.module';
 import { MovieService } from './_services/movie.service';
@@ -38,18 +37,16 @@ let providers = {
 		BrowserAnimationsModule
 	],
 	declarations: [
-		AppComponent,
-		AlertComponent
+		AppComponent
 	],
 	providers: [
 		customHttpProvider,
 		AuthGuard,
-		AuthGuard1,
+		AuthGuardSocialLogin,
 		ToastrService,
 		AuthenticationService,
 		UserService,
 		MovieService,
-		PagerService,
 		LoggedService,
 		{ provide: LOCALE_ID, useValue: "es" }
 	],

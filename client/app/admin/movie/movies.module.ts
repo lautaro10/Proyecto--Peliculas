@@ -9,6 +9,8 @@ import {
   MoviesRoutingModule,
   routingComponents
 } from './movies.routing';
+
+// Pipes
 import { GenrePipe } from '../pipes/genersPipe.pipe';
 import { IdiomPipe } from '../pipes/idiomPipe.pipe';
 import { PopularityPipe } from '../pipes/popularityPipe.pipe';

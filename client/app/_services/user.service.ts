@@ -1,10 +1,22 @@
-﻿import { Injectable } from '@angular/core';
-import { Http, Headers, RequestOptions, Response } from '@angular/http';
+﻿// Libraries
+import { Injectable } from '@angular/core';
+import {
+	Http,
+	Headers,
+	RequestOptions,
+	Response
+} from '@angular/http';
 
+// Models
 import { User } from '../_models/index';
 
 @Injectable()
 export class UserService {
+
+	/**
+	 * Create a new UserService instance
+	 * @param http Http
+	 */
 	constructor(private http: Http) { }
 
 	getAll() {

@@ -17,9 +17,8 @@ var angular2_social_login_1 = require("angular2-social-login");
 var app_component_1 = require("./app.component");
 var app_routing_1 = require("./app.routing");
 var index_1 = require("./_helpers/index");
-var index_2 = require("./_directives/index");
-var index_3 = require("./_guards/index");
-var index_4 = require("./_services/index");
+var index_2 = require("./_guards/index");
+var index_3 = require("./_services/index");
 var public_module_1 = require("./public/public.module");
 var admin_module_1 = require("./admin/admin.module");
 var movie_service_1 = require("./_services/movie.service");
@@ -52,18 +51,16 @@ var AppModule = /** @class */ (function () {
                 animations_1.BrowserAnimationsModule
             ],
             declarations: [
-                app_component_1.AppComponent,
-                index_2.AlertComponent
+                app_component_1.AppComponent
             ],
             providers: [
                 index_1.customHttpProvider,
-                index_3.AuthGuard,
-                index_3.AuthGuard1,
+                index_2.AuthGuard,
+                index_2.AuthGuardSocialLogin,
                 ngx_toastr_1.ToastrService,
-                index_4.AuthenticationService,
-                index_4.UserService,
+                index_3.AuthenticationService,
+                index_3.UserService,
                 movie_service_1.MovieService,
-                index_4.PagerService,
                 logged_service_1.LoggedService,
                 { provide: core_2.LOCALE_ID, useValue: "es" }
             ],
