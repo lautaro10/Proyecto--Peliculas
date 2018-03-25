@@ -10,7 +10,6 @@ import {
  * Routes for app module.
  */
 const MAIN_ROUTES: Routes = [
-  //{ path: '**',  component: NoContentComponent }
 ];
 
 /**

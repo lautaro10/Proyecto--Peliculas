@@ -23,6 +23,9 @@ let providers = {
 	}
 };
 
+/**
+ * `AppModule` defines a app module
+ */
 @NgModule({
 	imports: [
 		BrowserModule,

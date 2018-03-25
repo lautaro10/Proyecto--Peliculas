@@ -21,6 +21,9 @@ service.delete = _delete;
 
 module.exports = service;
 
+/**
+ * Function to authenticate at admin user
+ */
 function authenticate(username, password) {
 	var deferred = Q.defer();
 	db.users.findOne({ username: username }, function (err, user) {
@@ -42,6 +45,9 @@ function authenticate(username, password) {
 	return deferred.promise;
 }
 
+/**
+ * Function to get all users from the DB
+ */
 function getAll() {
 	var deferred = Q.defer();
 	db.users.find().toArray(function (err, users) {
@@ -55,6 +61,9 @@ function getAll() {
 	return deferred.promise;
 }
 
+/**
+ * Function to get at user from the DB
+ */
 function getById(_id) {
 	var deferred = Q.defer();
 	db.users.findById(_id, function (err, user) {
@@ -70,6 +79,9 @@ function getById(_id) {
   return deferred.promise;
 }
 
+/**
+ * Function to add user to the DB
+ */
 function create(userParam) {
 	var deferred = Q.defer();
 	// validation
@@ -103,6 +115,9 @@ function create(userParam) {
 	return deferred.promise;
 }
 
+/**
+ * Function to update user from the DB
+ */
 function update(_id, userParam) {
 	var deferred = Q.defer();
 
@@ -154,6 +169,9 @@ function update(_id, userParam) {
 	return deferred.promise;
 }
 
+/**
+ * Function to delete user from the DB
+ */
 function _delete(_id) {
 	var deferred = Q.defer();
 

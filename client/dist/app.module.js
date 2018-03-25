@@ -32,6 +32,9 @@ var providers = {
         'apiVersion': 'v2.4'
     }
 };
+/**
+ * `AppModule` defines a app module
+ */
 var AppModule = /** @class */ (function () {
     function AppModule() {
         angular2_social_login_1.Angular2SocialLoginModule.loadProvidersScripts(providers);

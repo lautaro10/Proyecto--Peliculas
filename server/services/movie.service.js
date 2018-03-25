@@ -20,6 +20,9 @@ service.delete = _delete;
 // Exports
 module.exports = service;
 
+/**
+ * Function to get all movies from the DB
+ */
 function getAll() {
 	var deferred = Q.defer();
 	db.movies.find().toArray(function (err, movies) {
@@ -33,6 +36,9 @@ function getAll() {
 	return deferred.promise;
 }
 
+/**
+ * Function to get at movie from the DB
+ */
 function getById(_id) {
 	var deferred = Q.defer();
 	db.movies.findById(_id, function (err, movie) {
@@ -48,6 +54,9 @@ function getById(_id) {
 	return deferred.promise;
 }
 
+/**
+ * Function to get add movie to DB
+ */
 function create(movieParam) {
 	var deferred = Q.defer();
 	// validation
@@ -75,7 +84,9 @@ function create(movieParam) {
 	return deferred.promise;
 }
 
-
+/**
+ * Function to delete movie from the DB
+ */
 function _delete(_id) {
 	var deferred = Q.defer();
 	db.movies.remove(

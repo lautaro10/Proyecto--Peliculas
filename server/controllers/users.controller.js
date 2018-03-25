@@ -15,6 +15,9 @@ router.delete('/:_id', _delete);
 // Export
 module.exports = router;
 
+/**
+ * Function to authenticate an admin user
+ */
 function authenticate(req, res) {
 	userService.authenticate(req.body.username, req.body.password)
 		.then(function (user) {
@@ -31,6 +34,9 @@ function authenticate(req, res) {
 		});
 }
 
+/**
+ * Function to register an admin user
+ */
 function register(req, res) {
 	userService.create(req.body)
 		.then(function () {
@@ -41,6 +47,9 @@ function register(req, res) {
 		});
 }
 
+/**
+ * Function to get all admin users
+ */
 function getAll(req, res) {
 	userService.getAll()
 		.then(function (users) {
@@ -51,6 +60,9 @@ function getAll(req, res) {
 		});
 }
 
+/**
+ * Function to get an current user
+ */
 function getCurrent(req, res) {
 	userService.getById(req.user.sub)
 		.then(function (user) {
@@ -65,6 +77,9 @@ function getCurrent(req, res) {
 		});
 }
 
+/**
+ * Function to update an user
+ */
 function update(req, res) {
 	userService.update(req.params._id, req.body)
 		.then(function () {
@@ -75,6 +90,9 @@ function update(req, res) {
 		});
 }
 
+/**
+ * Function to delete an admin user
+ */
 function _delete(req, res) {
 	userService.delete(req.params._id)
 		.then(function () {

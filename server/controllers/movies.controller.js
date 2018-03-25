@@ -13,6 +13,9 @@ router.delete('/:_id', _delete);
 // Export
 module.exports = router;
 
+/**
+ * Function to get all movies
+ */
 function getAll(req, res) {
 	movieService.getAll()
 		.then(function (movies) {
@@ -23,6 +26,9 @@ function getAll(req, res) {
 		});
 }
 
+/**
+ * Function to get current movie
+ */
 function getCurrent(req, res) {
 	movieService.getById(req.params.id)
 		.then(function (movie) {
@@ -37,6 +43,9 @@ function getCurrent(req, res) {
 		});
 }
 
+/**
+ * Function to get add movie
+ */
 function register(req, res) {
 	movieService.create(req.body)
 		.then(function () {
@@ -47,6 +56,9 @@ function register(req, res) {
 		});
 }
 
+/**
+ * Function to delete a movie
+ */
 function _delete(req, res) {
 	movieService.delete(req.params._id)
 		.then(function () {
